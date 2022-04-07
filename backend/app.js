@@ -12,16 +12,21 @@ const port = process.env.PORT || 3000;
 //middleware's
 app.use(bodyParser.json());
 
-
 // CORS HEADERS MIDDLEWARE
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token, x-refresh-token, _id");
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, x-access-token, x-refresh-token, _id"
+  );
 
   res.header(
-      'Access-Control-Expose-Headers',
-      'x-access-token, x-refresh-token'
+    "Access-Control-Expose-Headers",
+    "x-access-token, x-refresh-token"
   );
 
   next();
@@ -54,8 +59,8 @@ app.patch("/lists/:id", (req, res) => {
     {
       $set: req.body,
     }
-  ).then(() => {
-    res.sendStatus(200);
+  ).then((listDoc) => {
+    res.send(listDoc);
   });
 });
 
@@ -91,8 +96,8 @@ app.patch("/lists/:listId/tasks/:id", (req, res) => {
     {
       $set: req.body,
     }
-  ).then(() => {
-    res.sendStatus(200);
+  ).then((taskDoc) => {
+    res.send(taskDoc);
   });
 });
 

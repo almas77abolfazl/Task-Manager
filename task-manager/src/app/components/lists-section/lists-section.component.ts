@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { List } from 'src/app/models/list.model';
+import { Component, OnInit } from '@angular/core';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-lists-section',
@@ -7,9 +7,7 @@ import { List } from 'src/app/models/list.model';
   styleUrls: ['./lists-section.component.scss'],
 })
 export class ListsSectionComponent implements OnInit {
-  @Input() lists: List[] = [];
-
-  constructor() {}
+  constructor(public taskService: TaskService) {}
 
   ngOnInit(): void {}
 }

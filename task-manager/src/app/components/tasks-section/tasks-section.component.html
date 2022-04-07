@@ -1,20 +1,35 @@
 <div class="tasks-section has-background-white">
-  <h1 class="title has-text-primary">Tasks</h1>
+  <div style="display: flex; place-content: space-between">
+    <h1 class="title has-text-primary">Tasks</h1>
+    <div style="display: flex;">
+      <button class="button is-info has-text-light icon" [routerLink]="['./edit-list']">
+        <i class="fa fa-pencil"></i>
+      </button>
+      <button class="button is-danger has-text-light icon" (click)="onDeleteListClick()">
+        <i class="fa fa-trash"></i>
+      </button>
+    </div>
+  </div>
 
   <div class="task-list">
     <div
       class="task-list-item has-background-grey-lighter"
-      *ngFor="let task of tasks"
+      *ngFor="let task of taskService.tasks"
+      ondblclick="onTaskClick(task)"
     >
       <p class="task-text">{{ task.description }}</p>
       <div class="task-buttons" *ngIf="!task.completed">
-        <button class="button">
+        <button class="button" [routerLink]="['./edit-task', task._id]">
           <div class="icon">
             <i class="fa fa-edit"></i>
           </div>
         </button>
 
-        <button class="button is-danger" style="margin-left: 10px">
+        <button
+          class="button is-danger"
+          style="margin-left: 10px"
+          (click)="deleteTask(task._id)"
+        >
           <div class="icon">
             <i class="fa fa-trash"></i>
           </div>

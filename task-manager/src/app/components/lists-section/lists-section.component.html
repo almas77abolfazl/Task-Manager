@@ -3,7 +3,7 @@
   <div class="list-menu">
     <a
       class="list-menu-item"
-      *ngFor="let list of lists"
+      *ngFor="let list of taskService.lists"
       [routerLink]="['/lists', list._id]"
       routerLinkActive="is-active"
     >
