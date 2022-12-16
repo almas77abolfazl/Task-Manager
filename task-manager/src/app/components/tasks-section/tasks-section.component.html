@@ -15,9 +15,9 @@
     <div
       class="task-list-item has-background-grey-lighter"
       *ngFor="let task of taskService.tasks"
-      ondblclick="onTaskClick(task)"
+      (dblclick)="onTaskClick(task)"
     >
-      <p class="task-text">{{ task.description }}</p>
+      <p class="task-text" [ngClass]="{'is-completed': task.completed}">{{ task.description }}</p>
       <div class="task-buttons" *ngIf="!task.completed">
         <button class="button" [routerLink]="['./edit-task', task._id]">
           <div class="icon">

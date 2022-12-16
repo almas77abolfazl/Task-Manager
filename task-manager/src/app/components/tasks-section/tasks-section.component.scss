@@ -7,7 +7,7 @@
   position: relative;
 
   .task-list {
-   flex: 1;
+    flex: 1;
 
     .task-list-item {
       display: flex;
@@ -45,6 +45,9 @@
       .task-text {
         display: flex;
         flex-grow: 1;
+        &.is-completed {
+          text-decoration: line-through;
+        }
       }
 
       .task-buttons {

@@ -67,6 +67,11 @@ app.patch("/lists/:id", (req, res) => {
 // delete list form lists
 app.delete("/lists/:id", (req, res) => {
   List.findOneAndRemove({ _id: req.params.id }).then((listDoc) => {
+    Task.deleteMany({
+      _listId: listDoc._id,
+    }).then(() => {
+      console.log("Tasks from " + listDoc._id + " were deleted!");
+    });
     res.send(listDoc);
   });
 });
