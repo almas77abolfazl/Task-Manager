@@ -1,9 +1,9 @@
 <div class="centered-content">
-  <div class="modal-box">
+  <div class="modal-box" (keyup.enter)="createTask(taskTitleInput.value)">
     <h1 class="title">Create a new task</h1>
 
     <input
-      #listTitleInput
+      #taskTitleInput
       class="input has-background-light is-medium"
       type="text"
       placeholder="Enter task description.."
@@ -13,7 +13,7 @@
       <button class="button is-medium" routerLink="/">Cancel</button>
       <button
         class="button is-primary has-text-white is-medium"
-        (click)="createTask(listTitleInput.value)"
+        (click)="createTask(taskTitleInput.value)"
       >
         Create
       </button>
