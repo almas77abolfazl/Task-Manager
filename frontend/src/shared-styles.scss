@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Yekan";
+  src: url("./assets/IRANYekanRegular.ttf") format("truetype");
+  font-weight: normal;
+}
+
 $turquoise: #44ddd0;
 $green: #27d7a1;
 $light-green: #45f69e;
@@ -35,6 +41,10 @@ html,
 body {
   height: 100%;
   margin: 0;
+}
+
+* {
+  font-family: yekan, Lato;
 }
 
 p {
